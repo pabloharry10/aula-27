@@ -6,8 +6,15 @@ def situacao_aluno (media,faltas):                                              
         return "aprovado"                                                       #se essas duas condiçoes for verdadeiras ele será aprovado
     elif media < 5.0 or faltas >25:                                             #aqui tembem ele vai verificar se media for menor que 5 ou faltas for maior que 25
         return "reprovado"                                                      #o aluno e reprovado
-    else:                                                                       #aqui ele verifica se o aluno esta de recuperação
-        return"recuperação"                                                     #o aluno esta de recuperação 
+    elif media >=5:#recuperação
+        print("quanto o aluno tirou na recuperação?")
+        #ler a nota de recuperacao
+        recuperacao=float(input())
+        if recuperacao >=(10-media):
+            return"aprovado na recuperação"
+        else:
+            return"reprovado na recuperação"
+        
 def gerar_relatorio(alunos, num_alunos):                                        #definindo a função aluno e numeros de alunos
     print("relatorio da sitiação dos alunos:")                                  #vai mostrar na tela
     print ("-"*50)                                                              #tembem vai mostrar na tela
@@ -15,10 +22,10 @@ def gerar_relatorio(alunos, num_alunos):                                        
     i=0                                                                         #esse "i" ele funciona como se fosse um contador 
     while i < num_alunos:                                                       #enquanto "i"for menor que num de alunos ele ira repetir
         aluno=alunos[i]                                                         #isso acessa algumas possiçoes como ana, gabriel ou joão
-        print(f"aluno:{aluno[0]}")                                              #mostra o nome do aluno
-        print(f"media:{aluno[1]:.2f}")                                          #mostra a media desse aluno
-        print(f"faltas{aluno[2]}")                                              #mostra a quantidade de faltas desse aluno 
-        print(f"situação:{aluno[3]}")                                           #mostra a situação desse aluno se ele foi reprovado, aprovado ou de recuperação 
+        print(f"aluno: {aluno[0]}")                                              #mostra o nome do aluno
+        print(f"media: {aluno[1]:.2f}")                                          #mostra a media desse aluno
+        print(f"faltas: {aluno[2]}")                                              #mostra a quantidade de faltas desse aluno 
+        print(f"situação: {aluno[3]}")                                           #mostra a situação desse aluno se ele foi reprovado, aprovado ou de recuperação 
         print("-"*50)                                                           #mostra na tela
         i+=1                                                                    #isso serve para parar o while "um contador"
 def main():                                                                     #isso serve para definir uma função
