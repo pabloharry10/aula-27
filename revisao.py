@@ -1,4 +1,5 @@
 #ler entradas do usuario
+alunos =[]
 escolha_usuario=int (input("Quantos alunos você deseja cadastrar? "))
 cont=0
 while cont < escolha_usuario:
@@ -30,14 +31,8 @@ while cont < escolha_usuario:
             print(situacao)
     else:
         situacao="reprovado por media"
-
+    #enviar dados do aluno para a lista de alunos
+    alunos.append([nome,media,faltas,situacao])
     #relatorio
-    print("\n-------------------------------------------------------------")
-    print("Tudo sobre o aluno aqui:")
-    print(f"nome: {nome}")
-    print(f"notas: {nota1,nota2,nota3,nota4}")
-    print(f"faltas: {faltas}")
-    print(f"media: {media}")
-    print(f"a situação do aluno e: {situacao}")
-    print("---------------------------------------------------------------")
     cont+=1
+print(alunos)
