@@ -1,14 +1,16 @@
 #ler entradas do usuario
+import time
 nome=nota1=nota2=nota3=nota4=faltas=situacao=media=0
 alunos =[]
 nota1 = 0
 while True:
-    escolha_menu=int(input("Escolha uma opção: \n1.Cadastrar\n2.relatorio\n3.encerrar\nEscolha uma dessas opçoes: "))
+    escolha_menu=int(input("\nEscolha uma opção: \n1.Cadastrar\n2.relatorio\n3.encerrar\nEscolha uma dessas opçoes: "))
     if escolha_menu ==1: 
         escolha_usuario=int (input("Quantos alunos você deseja cadastrar? "))
         cont=0
         while cont < escolha_usuario:
-            nome =input("Digite o nome do aluno: ")#ARMAZENAR o nome do aluno
+            nome =input("\nDigite o nome do aluno: ")#ARMAZENAR o nome do aluno
+
             #4 notas dos alunos
             nota1=float(input("Digite a nota do 1°bimestre: "))
             nota2=float(input("Digite a nota do 2°bimestre: "))
@@ -16,9 +18,11 @@ while True:
             nota4=float(input("Digite a nota do 4°bimestre: "))
 
             faltas=int(input("Digite as faltas do aluno: "))
+
             #calculo da media
             media=(nota1+nota2+nota3+nota4)/4
             print (f"A media do aluno foi: {media}")
+
             #logica da situação
             if faltas > 31:
                 situacao ="Reprovado por faltas"
@@ -36,16 +40,22 @@ while True:
                     print(situacao)
             else:
                 situacao="reprovado por media"
+
             #enviar dados do aluno para a lista de alunos
             alunos.append([nome,media,faltas,situacao])
+            
             #relatorio
             cont+=1
     elif escolha_menu == 2:
-        print("-"*50)
+        print("processando...")
+        time.sleep(4)
         for i in alunos:
-            print("nome: ", i[0])
-            print("faltas: ", i[1])
-            print("media: ", i[2])
-            print(f"situação: {i[3]}\n")
-    
+            print("-"*50)
+            print(f"\nNome: {i[0]}")
+            print("Faltas: ", i[2])
+            print("Media: ", i[1])
+            print(f"Situação: {i[3]}\n")
         print("-"*50)
+    elif escolha_menu == 3:
+        print("Você encerrou o cadastro!")
+        break
