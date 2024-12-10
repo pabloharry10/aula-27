@@ -48,7 +48,7 @@ while True:
             cont+=1
     elif escolha_menu == 2:
         print("processando...")
-        time.sleep(4)
+        time.sleep(3)
         for i in alunos:
             print("-"*50)
             print(f"\nNome: {i[0]}")
